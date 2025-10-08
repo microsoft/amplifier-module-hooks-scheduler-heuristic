@@ -1,0 +1,2 @@
+[amplifier.modules]
+hooks-scheduler-heuristic = amplifier_mod_hooks_scheduler_heuristic:mount
