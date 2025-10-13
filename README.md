@@ -16,9 +16,11 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # Windows
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
+
 ## Purpose
 
 Provides basic scheduling strategies for event-driven orchestration:
+
 - First-available selection
 - Round-robin distribution
 - Random selection with seed support
@@ -27,7 +29,7 @@ Provides basic scheduling strategies for event-driven orchestration:
 
 **Module Type:** Hook
 **Mount Point:** `hooks` registry
-**Entry Point:** `amplifier_mod_hooks_scheduler_heuristic:mount`
+**Entry Point:** `amplifier_module_hooks_scheduler_heuristic:mount`
 
 ## Configuration
 
@@ -43,11 +45,13 @@ config = {
 ## Behavior
 
 Registers handlers for decision events:
+
 - `decision:tool_resolution` - Select tool from available options
 - `decision:agent_resolution` - Select agent for task delegation
 - `decision:context_resolution` - Decide context compaction strategy
 
 Returns `ToolResolutionResponse`, `AgentResolutionResponse`, or `ContextResolutionResponse` with:
+
 - Selected option
 - Score (0.0-1.0)
 - Rationale explaining selection
