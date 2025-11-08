@@ -90,12 +90,12 @@ class HeuristicScheduler:
 
         Args:
             event: Event name
-            data: Contains tool, arguments, available_tools
+            data: Contains tool_name, tool_input, available_tools
 
         Returns:
             HookResult with action (continue, deny, or modify)
         """
-        tool_name = data.get("tool")
+        tool_name = data.get("tool_name")
         available_tools = data.get("available_tools", [])
 
         # Log the LLM's selection
@@ -118,7 +118,7 @@ class HeuristicScheduler:
             logger.info(f"Heuristic scheduler overriding: {tool_name} → {preferred_tool}")
             return HookResult(
                 action="modify",
-                data={"tool": preferred_tool},
+                data={"tool_name": preferred_tool},
                 reason=f"Strategy {self.strategy.__class__.__name__} prefers {preferred_tool}",
             )
 
